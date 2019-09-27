@@ -33,11 +33,13 @@
 <script>
 import Swiper from "swiper";
 import Logic from "./Logic";
+import Data from "./Data";
 export default {
   name: "Kechen",
   data() {
     return {
-      ...Logic.data
+      ...Logic.data,
+      ...Data
     };
   },
   mounted() {

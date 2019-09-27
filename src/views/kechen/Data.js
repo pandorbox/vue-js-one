@@ -1,20 +1,21 @@
-import Vue from "vue";
-import Call from "../../core/request/Request";
-import Api from "../../core/api/index";
 export default {
-  /** 获取初始数据 */
-  async getData() {
-    let data = [];
-    const Res = await Call(Api.Kecheng.deafultList());
-    data = Res;
-    return data;
-  },
-  /** 获取tab切换数据 */
-  async getTabData(param) {
-    let data = [];
-    let kcclass = param.nav[param.index].kcclass;
-    const Res = await Call(Api.Kecheng.tabCutList({ _kcclass: kcclass }));
-    data = Res;
-    return data;
-  }
+  nav: [
+    {
+      kcclass: "计算机类",
+      kcicon: "http://127.0.0.1:3000/img/icon/jisuanji.png"
+    },
+    {
+      kcclass: "文史类",
+      kcicon: "http://127.0.0.1:3000/img/icon/lishi.png"
+    },
+    {
+      kcclass: "经济类",
+      kcicon: "http://127.0.0.1:3000/img/icon/jinji.png"
+    },
+    {
+      kcclass: "英语类",
+      kcicon: "http://127.0.0.1:3000/img/icon/yinyu.png"
+    },
+    { kcclass: "地理类", kcicon: "http://127.0.0.1:3000/img/icon/dili.png" }
+  ]
 };

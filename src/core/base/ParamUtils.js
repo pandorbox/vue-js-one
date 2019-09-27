@@ -12,9 +12,9 @@ export default {
     Object.keys(param).forEach(function(key) {
       if (key.substring(0, 1) == "_") {
         let dKey = key.substring(1, key.length);
-        dParam = dKey + "=" + param[key] + "&";
+        dParam += dKey + "=" + param[key] + "&";
       } else {
-        dParam = dKey + "=" + param[key] + "&";
+        dParam += dKey + "=" + param[key] + "&";
       }
     });
     return dParam;

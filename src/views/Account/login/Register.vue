@@ -1,76 +1,71 @@
 <template><!--index.vue<body>-->
-  <div >
-  <Header/>
+  <div>
+  <Header />
   <div id="container" class="container">
+    <table></table>
     <div class="black">
       <table class="table">
         <tr class="table-tr">
           <td>
-            <h4>登录YueDong</h4>
+            <h4>注册YueDong</h4>
           </td>
           <td>
-            <router-link to="/index"><span>游客浏览</span></router-link>
+            
+          </td>
+        </tr>
+       <tr>
+          <td colspan="2">
+            <input type="text" placeholder="请输入您的用户名" class="uname"  v-model="username">
           </td>
         </tr>
         <tr>
           <td colspan="2">
-            <input type="text" placeholder="请输入您的用户名" class="uname" v-model="username">
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2">
-            <input type="password" placeholder="请输入您的密码" class="upwd" v-model="userpwd">
+            <input type="password" placeholder="请输入您的密码" class="upwd"  v-model="userpwd">
           </td>
         </tr>
         <tr>
           <td class="autoLogin">
-            <input type="checkbox">自动登录
+            <span></span>
           </td>
           <td>
-            <router-link to="/register"><span>去注册》</span></router-link>
+           <span></span>
           </td>
         </tr>
         <tr>
           <td colspan="2">
-            <input type="button" value="登录" class="btn login btn-info" @click="signin()">
+            <input type="button" value="注册 " class="btn login btn-danger" @click="signin()">
           </td>
         </tr>
       </table>
     </div>
   </div>
-   <Foote />
+  <Foote />
   </div>
-   
 </template>
 <script>
 import Header from '@/components/Headerlogin.vue'
 import Foote from '@/components/Foote.vue'
+  
   export default {
     components: {
-    Header,
-    Foote
-  },
+        Header,
+        Foote
+    },
     data(){
       return {username:"",userpwd:""}
     },
-    mounted(){
-      this.$store.state.islogin = false;
-      this.$store.state.username = ''; 
-    },
     methods:{
-       
       signin(){
         this.$http.post(
-         "http://127.0.0.1:3000/demo/login",
+         "http://127.0.0.1:3000/demo/registe",
          `username=${this.username}&userpwd=${this.userpwd}`
         ).then(res=>{
+            console.log(res);
            if(res.data==1){
-            alert("登陆成功!"); 
-              this.$store.commit(
-              "signin", this.username
-              );
-                this.$router.push("/index");
-            
+            alert("注册成功!"); 
+           
+            this.$router.push("/login");
+             //location.href=/
            }else{
              alert(res.data.msg);
            }
@@ -84,7 +79,7 @@ import Foote from '@/components/Foote.vue'
         width:100%;
         height:600px;
         background:url(./img/bg.png) no-repeat;
-        background-size: 100%;
+       background-size: 100%;
       }
       #container div.black{
         width:300px;
