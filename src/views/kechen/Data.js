@@ -5,7 +5,7 @@ export default {
   /** 获取初始数据 */
   async getData() {
     let data = [];
-    const Res = await Call.Request(await Api.Kecheng.deafultList());
+    const Res = await Call(Api.Kecheng.deafultList());
     data = Res;
     return data;
   },
@@ -13,7 +13,7 @@ export default {
   async getTabData(param) {
     let data = [];
     let kcclass = param.nav[param.index].kcclass;
-    const Res = await Call.Request(await Api.Kecheng.tabCutList({ _kcclass: kcclass }));
+    const Res = await Call(Api.Kecheng.tabCutList({ _kcclass: kcclass }));
     data = Res;
     return data;
   }

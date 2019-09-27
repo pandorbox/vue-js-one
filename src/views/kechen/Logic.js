@@ -24,8 +24,9 @@ export default {
       { kcclass: "地理类", kcicon: "http://127.0.0.1:3000/img/icon/dili.png" }
     ]
   },
-  async created() {
+  async mounted() {
     this.data.items = await Data.getData();
+    console.log("data:", this.data.items);
   },
   methods: {
     async tab(index) {

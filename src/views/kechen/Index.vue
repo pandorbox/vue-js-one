@@ -40,8 +40,8 @@ export default {
       ...Logic.data
     };
   },
-  created() {
-    Logic.created();
+  mounted() {
+    Logic.mounted();
   },
   methods: {
     ...Logic.methods
