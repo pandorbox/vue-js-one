@@ -20,5 +20,23 @@ export default {
       url: "http://127.0.0.1:3000/thiskclist",
       param: ParamUtils.format(param)
     };
+  },
+  /** 添加课程步骤一 */
+  addKechengOne(param) {
+    return {
+      name: "添加课程步骤一",
+      method: "POST",
+      url: "http://127.0.0.1:3000/demo/addkclistone",
+      param: param
+    };
+  },
+  /** 添加课程步骤二 */
+  addKechengTwo(param) {
+    return {
+      name: "添加课程步骤二",
+      method: "POST",
+      url: "http://127.0.0.1:3000/demo/addkclist",
+      param: param
+    };
   }
 };
