@@ -47,5 +47,41 @@ export default {
       url: "http://127.0.0.1:3000/notic",
       param: {}
     };
+  },
+  /** 首页获取课程列表一 */
+  indexGetClassListOne(param) {
+    return {
+      name: "首页获取课程列表一",
+      method: "GET",
+      url: "http://127.0.0.1:3000/kclistone",
+      param: {}
+    };
+  },
+  /** 首页获取课程列表二 */
+  indexGetClassListTwo(param) {
+    return {
+      name: "首页获取课程列表二",
+      method: "GET",
+      url: "http://127.0.0.1:3000/kclisttwo",
+      param: {}
+    };
+  },
+  /** 首页获取课程列表三 */
+  indexGetClassListThr(param) {
+    return {
+      name: "首页获取课程列表三",
+      method: "GET",
+      url: "http://127.0.0.1:3000/kclistthr",
+      param: {}
+    };
+  },
+  /** 首页获取课程列表四 */
+  indexGetClassListFou(param) {
+    return {
+      name: "首页获取课程列表四",
+      method: "GET",
+      url: "http://127.0.0.1:3000/kclistfou",
+      param: {}
+    };
   }
 };

@@ -1,5 +1,5 @@
 <template>
-  <div class="page container">
+  <div class="components container">
     <Banner />
     <List :items="items" />
   </div>
@@ -20,7 +20,7 @@ export default {
     };
   },
   async mounted() {
-    Logic.mounted();
+    await Logic.mounted();
   },
   methods: {
     ...Logic.methods
@@ -28,10 +28,4 @@ export default {
 };
 </script>
 <style lang="css" scoped>
-.components {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
 </style>

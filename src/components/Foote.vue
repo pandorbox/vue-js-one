@@ -18,7 +18,7 @@
 </template>
 <style>
 .footer {
-  margin-top: 150px;
+  margin-top: 300px;
   background-color: rgb(247, 241, 241);
   position: relative;
   bottom: 0px;
@@ -29,7 +29,7 @@
   margin-top: 6%;
 }
 .copy {
-  background-color: #54d1a3;
+  background-color: #8bbda9;
 }
 .footer-nav div > div ul > li {
   margin-top: 40px;

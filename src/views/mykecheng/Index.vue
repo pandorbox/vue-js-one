@@ -1,5 +1,5 @@
 <template>
-  <div class="page container">
+  <div class="components container">
     <div v-if="thistc" class="mc"></div>
     <div v-if="thistc" class="tc">
       <div class="tc-box">
@@ -144,14 +144,9 @@ export default {
 </script>
 <style lang="css" scoped>
 .components {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-.page {
   border: 1px solid #ccc;
   padding-bottom: 200px;
+  height: 100%;
 }
 .mc {
   width: 100%;

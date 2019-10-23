@@ -1,5 +1,5 @@
 <template>
-  <div class="kechen page container">
+  <div class="kechen components container">
     <div class="pathtit"></div>
     <div class="nav">
       <div class="nav1-list" @click="tab(index)" v-for="(item,index) in nav" :key="index">

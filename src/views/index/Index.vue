@@ -1,50 +1,31 @@
 <template>
-  <div class="page container">
+  <div class="container components">
     <Banner />
-    <List />
+    <List :items="items" />
   </div>
 </template>
 <script>
 // @ is an alias to /src
-import Banner from './_comp/Banner.vue'
-import List from './_comp/List.vue'
-
+import Banner from "./_components/Banner.vue";
+import List from "./_components/List.vue";
+import Logic from "./Logic";
+import Data from "./Data";
 export default {
-  components: {
-    Banner,
-    List
+  components: { Banner, List },
+  name: "Kechen",
+  data() {
+    return {
+      ...Logic.data,
+      ...Data
+    };
   },
-  data(){
-    return{
-       banner:[],
-       a:"123"
-    }
+  mounted() {
+    Logic.mounted();
   },
- 
-}
+  methods: {
+    ...Logic.methods
+  }
+};
 </script>
-
-<style>
-/* 顶部导航 */
- .page{
-     border: 1px solid #ccc;
-     /* Safari for macOS & iOS */
-    -webkit-backdrop-filter: blur(5px); 
-    /* Google Chrome */
-    backdrop-filter: blur(5px); 
-    /* 设置背景半透明黑色 */
-    background: rgba(175, 173, 173, 0.8); 
- }
- 
-.page::before{
-	content:'';
-	position:absolute;
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	filter:blur(10px) contrast(.9);
-	z-index:-1;
-  background:url('/assets/login_bg.jpg') 0 / cover fixed;
-}
+<style lang="css" scoped>
 </style>
