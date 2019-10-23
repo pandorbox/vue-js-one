@@ -38,5 +38,14 @@ export default {
       url: "http://127.0.0.1:3000/demo/addkclist",
       param: param
     };
+  },
+  /** 获取通告 */
+  getNoticList(param) {
+    return {
+      name: "获取通告",
+      method: "GET",
+      url: "http://127.0.0.1:3000/notic",
+      param: {}
+    };
   }
 };
