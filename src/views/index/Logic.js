@@ -10,6 +10,15 @@ export default {
     console.log("data:", this.data.items);
   },
   methods: {
-    async onClick(param) {}
+    async onClick(param) {},
+    async routerTo(param) {
+      this.$router.push({
+        name: `study`,
+        params: {
+          id: param._id,
+          tit: param._tit
+        }
+      });
+    }
   }
 };

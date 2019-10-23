@@ -1,7 +1,7 @@
 <template>
   <div class="container components">
     <Banner />
-    <List :items="items" />
+    <List :items="items" @router="routerTo" />
   </div>
 </template>
 <script>

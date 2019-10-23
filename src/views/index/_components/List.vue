@@ -35,55 +35,14 @@ export default {
     items: { default: {} }
   },
   data() {
-    return {
-      tit: [],
-      img: []
-    };
+    return {};
   },
-  mounted: function() {
-    // 获取首页列表栏
-    // this.$http.get('http://127.0.0.1:3000/kclistone').then((res)=>{
-    //       this.items.push(res.data.result);
-    //       this.tit.push(res.data.tit);
-    //       this.img.push(res.data.img);
-    //     }).catch((err)=>{
-    //         alert(err);
-    //     });
-    //   this.$http.get('http://127.0.0.1:3000/kclisttwo').then((res)=>{
-    //       this.items.push(res.data.result);
-    //       this.tit.push(res.data.tit);
-    //       this.img.push(res.data.img);
-    //     }).catch((err)=>{
-    //         alert(err);
-    //     });
-    //   this.$http.get('http://127.0.0.1:3000/kclistthr').then((res)=>{
-    //       this.items.push(res.data.result);
-    //       this.tit.push(res.data.tit);
-    //       this.img.push(res.data.img);
-    //     }).catch((err)=>{
-    //         alert(err);
-    //     });
-    //   this.$http.get('http://127.0.0.1:3000/kclistfou').then((res)=>{
-    //       this.items.push(res.data.result);
-    //       this.tit.push(res.data.tit);
-    //       this.img.push(res.data.img);
-    //     }).catch((err)=>{
-    //         alert(err);
-    //     });
-    //   console.log(this.items)
-    //   console.log(this.tit);
-  },
+  mounted: function() {},
   methods: {
     routerTo(indexs, index) {
-      console.log(indexs, index);
-      console.log(this.items[indexs][index]);
-      this.$router.push({
-        name: `study`,
-        params: {
-          id: this.items[indexs][index].id,
-          tit: this.items[indexs][index].kcname
-        }
-      });
+      let id = this.items[indexs].result[index].id;
+      let tit = this.items[indexs].result[index].kcname;
+      this.$emit("router", { _id: id, _tit: tit });
     }
   }
 };
