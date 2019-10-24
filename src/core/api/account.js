@@ -93,10 +93,10 @@ export default {
       param: ParamUtils.format(param)
     };
   },
-  /** 获取列表详情 */
+  /** 获取课程详情 */
   getListDetail(param) {
     return {
-      name: "获取列表详情",
+      name: "获取课程详情",
       method: "POST",
       url: "http://127.0.0.1:3000/thiskclistdetail",
       param: ParamUtils.format(param)
