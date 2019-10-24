@@ -62,6 +62,8 @@ export default {
     };
   },
   mounted() {
+    this.$store.state.islogin = false;
+    this.$store.state.username = "";
     Logic.mounted();
   },
   methods: {

@@ -5,8 +5,8 @@ export default {
   /** 获取初始数据 */
   async getData() {
     let data = [];
-    const Res = await Call(Api);
-    data = Res;
+    // const Res = await Call(Api);
+    // data = Res;
     return data;
   },
   /** 登录 */

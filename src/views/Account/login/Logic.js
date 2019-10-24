@@ -9,9 +9,7 @@ export default {
     /** 密码 */
     userpwd: ""
   },
-  async mounted() {
-    this.$store.state.islogin = false;
-    this.$store.state.username = "";
+  async mounted(param) {
     this.data.items = await NData.getData();
     console.log("data:", this.data.items);
   },

@@ -30,6 +30,15 @@ export default {
       param: ParamUtils.format(param)
     };
   },
+  /** 获取用户详细信息 */
+  userDetailMsg(param) {
+    return {
+      name: "获取用户详细信息",
+      method: "POST",
+      url: "http://127.0.0.1:3000/demo/getusermsg",
+      param: ParamUtils.format(param)
+    };
+  },
   /** 我的课程 */
   myKecheng(param) {
     return {
@@ -99,6 +108,42 @@ export default {
       name: "获取课程详情",
       method: "POST",
       url: "http://127.0.0.1:3000/thiskclistdetail",
+      param: ParamUtils.format(param)
+    };
+  },
+  /** 获取课程评价 */
+  getClassPinjia(param) {
+    return {
+      name: "获取课程评价",
+      method: "POST",
+      url: "http://127.0.0.1:3000/demo/kcpj",
+      param: ParamUtils.format(param)
+    };
+  },
+  /** 获取课程是否订阅 */
+  isDinyue(param) {
+    return {
+      name: "获取课程是否订阅",
+      method: "POST",
+      url: "http://127.0.0.1:3000/demo/isdinyue",
+      param: ParamUtils.format(param)
+    };
+  },
+  /** 关注 */
+  addGuanzhu(param) {
+    return {
+      name: "关注",
+      method: "POST",
+      url: "http://127.0.0.1:3000/demo/addmyguanzhu",
+      param: ParamUtils.format(param)
+    };
+  },
+  /** 订阅 */
+  addDinyue(param) {
+    return {
+      name: "订阅",
+      method: "POST",
+      url: "http://127.0.0.1:3000/demo/addmydinyue",
       param: ParamUtils.format(param)
     };
   }
