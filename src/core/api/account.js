@@ -56,5 +56,50 @@ export default {
       url: "http://127.0.0.1:3000/demo/adduserimg",
       param: param
     };
+  },
+  /** 添加个人笔记 */
+  addNoteBook(param) {
+    return {
+      name: "添加个人笔记",
+      method: "POST",
+      url: "http://127.0.0.1:3000/demo/addmybj",
+      param: ParamUtils.format(param)
+    };
+  },
+  /** 获取个人笔记 */
+  getNoteBook(param) {
+    return {
+      name: "获取个人笔记",
+      method: "POST",
+      url: "http://127.0.0.1:3000/demo/mybj",
+      param: ParamUtils.format(param)
+    };
+  },
+  /** 获取关注列表 */
+  getGuanzhu(param) {
+    return {
+      name: "获取关注列表",
+      method: "POST",
+      url: "http://127.0.0.1:3000/demo/myguanzhu",
+      param: ParamUtils.format(param)
+    };
+  },
+  /** 获取订阅列表 */
+  getDingyue(param) {
+    return {
+      name: "获取订阅列表",
+      method: "POST",
+      url: "http://127.0.0.1:3000/demo/mydinyue",
+      param: ParamUtils.format(param)
+    };
+  },
+  /** 获取列表详情 */
+  getListDetail(param) {
+    return {
+      name: "获取列表详情",
+      method: "POST",
+      url: "http://127.0.0.1:3000/thiskclistdetail",
+      param: ParamUtils.format(param)
+    };
   }
 };
