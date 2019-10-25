@@ -5,12 +5,13 @@ export default {
   data: {
     items: [] //始数据组
   },
-  async mounted() {
-    this.data.items = await NData.getData();
-    console.log("data:", this.data.items);
+  event: {
+    async getData() {
+      this.items = await NData.getData();
+      console.log("data:", this.items);
+    }
   },
   methods: {
-    async onClick(param) {},
     async routerTo(param) {
       this.$router.push({
         name: `study`,
@@ -19,6 +20,14 @@ export default {
           tit: param._tit
         }
       });
+    }
+  },
+  being: {
+    async beforeMount() {
+      await this.getData();
+    },
+    async mounted() {
+      await this.getData();
     }
   }
 };

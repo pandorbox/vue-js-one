@@ -24,7 +24,7 @@
           <!-- 搜索 -->
           <div class="search col-lg-4 col-md-4">
             <div class="search-input">
-              <input type="text" class value placeholder="搜索" />
+              <input type="text" placeholder="搜索" />
               <div>
                 <img src="@/assets/img/header/search.png" alt srcset />
               </div>

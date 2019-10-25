@@ -146,5 +146,14 @@ export default {
       url: "http://127.0.0.1:3000/demo/addmydinyue",
       param: ParamUtils.format(param)
     };
+  },
+  /** 评价 */
+  addPingjia(param) {
+    return {
+      name: "评价",
+      method: "POST",
+      url: "http://127.0.0.1:3000/demo/addkcpj",
+      param: ParamUtils.format(param)
+    };
   }
 };

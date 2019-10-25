@@ -1,6 +1,7 @@
 <template>
   <div class="container components">
     <Banner />
+    <div>{{items}}</div>
     <List :items="items" @router="routerTo" />
   </div>
 </template>
@@ -19,10 +20,14 @@ export default {
       ...Data
     };
   },
-  mounted() {
-    Logic.mounted();
+  async mounted() {
+    await Logic.event.getData();
+    console.log(this.items);
+    // console.log("items:", this.items);
+    // Logic.mounted();
   },
   methods: {
+    ...Logic.event,
     ...Logic.methods
   }
 };

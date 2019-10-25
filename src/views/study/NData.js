@@ -10,7 +10,7 @@ export default {
     const resUserMsg = await Call(Api.Account.userMsg({ _username: param._username }));
     const resIsDinyue = await Call(Api.Account.isDinyue({ _username: param._username, _kcid: param._route.id }));
     data.classDetail = resClassDetail;
-    data.classPinjia = resClassPinjia;
+    data.classPinjia = resClassPinjia.code ? [] : resClassPinjia;
     data.userMsg = resUserMsg;
     data.isDinyue = resIsDinyue;
 
@@ -24,6 +24,19 @@ export default {
   /** 添加订阅 */
   async addDinyue(param) {
     let res = await Call(Api.Account.addDinyue({ _username: param._username, _kcid: param._kcid }));
+    return res;
+  },
+  /** 添加评价 */
+  async addPingjia(param) {
+    let res = await Call(
+      Api.Account.addPingjia({
+        _pjtime: param._pjtime,
+        _userimg: param._userimg,
+        _kcpjmsg: param._kcpjmsg,
+        _username: param._username,
+        _kcid: param._kcid
+      })
+    );
     return res;
   }
 };

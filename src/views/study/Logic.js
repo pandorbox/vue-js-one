@@ -17,12 +17,12 @@ export default {
   },
   async mounted(param) {
     console.log(param);
-    this.id = param.route.id;
+    this.data.id = param.route.id;
     this.data.items = await NData.getData({ _route: param.route, _username: param.username });
     if (this.data.items.isDinyue == 1) {
-      this.isdy = true;
+      this.data.isdy = true;
     } else {
-      this.isdy = false;
+      this.data.isdy = false;
     }
     console.log("data:", this.data.items);
   },
@@ -61,21 +61,24 @@ export default {
         this.isdy = true;
         console.log(this.isdy);
         console.log(res);
-        // this.$http
-        //   .post(
-        //     "http://127.0.0.1:3000/demo/addmydinyue",
-        //     `username=${this.$store.state.username}&kcid=${this.id}&userjf=${userjf}`
-        //   )
-        //   .then(res => {
-        //     if (res.data.code == 200) {
-        //       this.isdy = false;
-        //       alert(res.data.msg);
-        //     }
-        //   })
-        //   .catch(err => {
-        //     alert(err);
-        //   });
       }
+    },
+    async addpj() {
+      var time = new Date();
+      var yaear = time.getFullYear();
+      var month = time.getMonth() + 1;
+      var day = time.getDate();
+      var pjtime = yaear + "-" + month + "-" + day;
+      console.log(pjtime);
+      console.log("id:", this.id);
+      let res = await NData.addPingjia({
+        _pjtime: pjtime,
+        _userimg: this.items.userMsg[0].userimg,
+        _kcpjmsg: this.kcpjmsg,
+        _username: this.items.userMsg[0].username,
+        _kcid: this.id
+      });
+      console.log(res);
     }
   }
 };

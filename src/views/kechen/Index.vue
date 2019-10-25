@@ -12,7 +12,7 @@
     <div class="nav1-msg">
       <div
         class="nav1-msg-list"
-        v-for="(item, index) in items"
+        v-for="(item, index) in items.classList"
         @click="routerTo(index)"
         :key="index"
       >

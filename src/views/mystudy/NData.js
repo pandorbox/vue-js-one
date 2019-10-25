@@ -29,7 +29,7 @@ export default {
     const resMyKecheng = await Call(Api.Account.myKecheng({ _username: param._name }));
     data.userMsg = resMsg;
     data.noteBook = resNoteBook;
-    data.myKecheng = resMyKecheng;
+    data.myKecheng = resMyKecheng.code ? [] : resMyKecheng;
     return data;
   },
   /** 添加个人笔记 */

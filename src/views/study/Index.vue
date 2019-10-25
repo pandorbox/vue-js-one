@@ -68,7 +68,7 @@
             <img :src="item.userimg" alt />
           </div>
           <div class="nav-usermsg-list-msg">
-            <p>用户{{item.username}}</p>
+            <p>用户：{{item.username}}</p>
             <p>评论：{{item.kcpjmsg}}</p>
             <p>时间：{{item.pjtime}}</p>
           </div>

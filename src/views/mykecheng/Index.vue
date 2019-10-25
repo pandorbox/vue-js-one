@@ -51,7 +51,7 @@
         </div>
       </div>
       <div v-if="curId == 0" class="nav2-msg">
-        <div class="nav2-msg-list" v-for="(item, index) in items.mykecheng" :key="index">
+        <div class="nav2-msg-list" v-for="(item, index) in items.myKecheng" :key="index">
           <div class="nav2-msg-list-img">
             <img :src="item.kcimg" alt />
           </div>
@@ -61,6 +61,7 @@
             <p>发布时间：{{item.time}}</p>
             <p>收藏次数：{{item.shoucang}}</p>
             <p>订阅人数：{{item.dingyue}}</p>
+            <p>课程状态：{{item.isshow=='false'?'审核中':'已发布'}}</p>
           </div>
         </div>
       </div>
