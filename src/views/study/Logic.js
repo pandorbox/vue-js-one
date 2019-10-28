@@ -15,16 +15,25 @@ export default {
     nav: ["课程详情", "课程评价"],
     pinjia: []
   },
-  async mounted(param) {
-    console.log(param);
-    this.data.id = param.route.id;
-    this.data.items = await NData.getData({ _route: param.route, _username: param.username });
-    if (this.data.items.isDinyue == 1) {
-      this.data.isdy = true;
-    } else {
-      this.data.isdy = false;
-    }
-    console.log("data:", this.data.items);
+/**
+ * 生命周期
+ */
+  being: {
+    async beforeCreate(){}, // 组件实例刚被创建
+    async created(){}, // 组件实例创建完成 
+    async beforeMount() {}, // 挂载前
+    async mounted() { // 挂载后
+      let route = this.$route.params;
+      let name = this.$store.state.username
+      this.id = this.$route.params.id;
+      this.items = await NData.getData({ _route: route, _username: name });
+      if (this.items.isDinyue == 1) {
+        this.isdy = true;
+      } else {
+      this.isdy = false;
+      }
+      console.log("data:", this.items);
+    },
   },
   methods: {
     async onClick(param) {},

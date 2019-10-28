@@ -121,12 +121,10 @@ export default {
       ...Data
     };
   },
-  async mounted() {
-    await Logic.mounted({ _name: this.$store.state.username });
-  },
   methods: {
     ...Logic.methods
-  }
+  },
+  ...Logic.being
 };
 </script>
 <style lang="css" scoped>

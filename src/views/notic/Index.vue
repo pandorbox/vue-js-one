@@ -19,12 +19,10 @@ export default {
       ...Data
     };
   },
-  async mounted() {
-    await Logic.mounted();
-  },
   methods: {
     ...Logic.methods
-  }
+  },
+  ...Logic.being
 };
 </script>
 <style lang="css" scoped>

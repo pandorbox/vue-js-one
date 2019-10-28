@@ -12,21 +12,26 @@ export default {
     nav: ["未学完课程", "已学完课程", "我的订阅", "我的关注", "我的读书笔记"],
     mykecheng: []
   },
-  async mounted(param) {
-    this.data.items = await NData.getData({ _name: param._name });
-    console.log("data:", this.data.items);
+/**
+ * 生命周期
+ */
+  being: {
+    async beforeCreate(){}, // 组件实例刚被创建
+    async created(){}, // 组件实例创建完成 
+    async beforeMount() {}, // 挂载前
+    async mounted() { // 挂载后
+      let name = this.$store.state.username
+      this.items = await NData.getData({ _name: name });
+      console.log("data:", this.items);
+    },
+    async beforeUpdate(){}, // 组件更新前
+    async updated(){} // 组件更新后
   },
   methods: {
     async onClick(param) {},
     tab(index) {
       this.curId = index;
     },
-    /** 获取参数 */
-    // async getRouterData() {
-    //   console.log("router:", this.$route);
-    //   this.data.id = await this.$route.params.id;
-    //   this.data.tit = await this.$route.params.tit;
-    // },
     istc() {
       this.thistc = true;
     },

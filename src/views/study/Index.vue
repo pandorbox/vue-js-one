@@ -99,15 +99,10 @@ export default {
       ...Data
     };
   },
-  async mounted() {
-    await Logic.mounted({
-      route: this.$route.params,
-      username: this.$store.state.username
-    });
-  },
   methods: {
     ...Logic.methods
-  }
+  },
+  ...Logic.being
 };
 </script>
 <style lang="css" scoped>

@@ -135,12 +135,10 @@ export default {
       ...Data
     };
   },
-  mounted() {
-    Logic.mounted(this.$store.state.username);
-  },
   methods: {
     ...Logic.methods
-  }
+  },
+  ...Logic.being
 };
 </script>
 <style lang="css" scoped>

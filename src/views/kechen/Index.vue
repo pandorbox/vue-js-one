@@ -12,7 +12,7 @@
     <div class="nav1-msg">
       <div
         class="nav1-msg-list"
-        v-for="(item, index) in items.classList"
+        v-for="(item, index) in items"
         @click="routerTo(index)"
         :key="index"
       >
@@ -42,12 +42,10 @@ export default {
       ...Data
     };
   },
-  mounted() {
-    Logic.mounted();
-  },
   methods: {
     ...Logic.methods
-  }
+  },
+  ...Logic.being
 };
 </script>
 <style lang="css" scoped>

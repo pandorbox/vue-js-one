@@ -1,7 +1,6 @@
 <template>
   <div class="container components">
     <Banner />
-    <div>{{items}}</div>
     <List :items="items" @router="routerTo" />
   </div>
 </template>
@@ -20,16 +19,10 @@ export default {
       ...Data
     };
   },
-  async mounted() {
-    await Logic.event.getData();
-    console.log(this.items);
-    // console.log("items:", this.items);
-    // Logic.mounted();
-  },
   methods: {
-    ...Logic.event,
     ...Logic.methods
-  }
+  },
+  ...Logic.being
 };
 </script>
 <style lang="css" scoped>
