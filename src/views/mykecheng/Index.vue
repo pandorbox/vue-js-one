@@ -1,6 +1,6 @@
 <template>
-  <div class="components container">
-    <div v-if="thistc" class="mc"></div>
+  <div class="page container">
+    <!-- <div v-if="thistc" class="mc"></div>
     <div v-if="thistc" class="tc">
       <div class="tc-box">
         <div class="tc-row">
@@ -20,16 +20,20 @@
           <div class="btn btn-danger" @click="notc(index)">取消</div>
         </div>
       </div>
-    </div>
+    </div> -->
+    <Tanc v-if="thistc" :thistc="thistc" @changeMsg="changeMsg" @close="closeTanc" :userNc="userNc" :userJs="userJs" />
+    <UserMsg :items="items.userMsg" @openTanc="openTanc" @upPhoto="upPhoto" />
+    <Tab :nav="nav" @tab="tab" :tabIndex="tabIndex" />
+    <ClasList v-if="tabIndex == 0" :items="items.myKecheng" />
     <div class="user">
-      <div class="user-msg" v-for="(item,index) in items.userMsg" :key="index">
+      <!-- <div class="user-msg" v-for="(item, index) in items.userMsg" :key="index">
         <div class="user-msg-img">
           <img :src="item.userimg" alt />
         </div>
         <div class="user-msg-text">
           <p></p>
-          <p>昵称：{{item.usernc}}</p>
-          <p>简介：{{item.userjj}}</p>
+          <p>昵称：{{ item.usernc }}</p>
+          <p>简介：{{ item.userjj }}</p>
         </div>
         <div class="user-msg-xg">
           <div class="btn btn-success" @click="istc(index)">修改资料</div>
@@ -38,34 +42,34 @@
             <input type="file" multiple id="userinputFile" @change="userimg()" name="userimg" />
           </form>
         </div>
-      </div>
-      <div class="user-nav">
-        <div
+      </div> -->
+      <!-- <div class="user-nav">
+      <div
           class="nav2-list"
           @click="tab(index)"
-          v-for="(item,index) in nav"
-          :class="{active : index===curId}"
+          v-for="(item, index) in nav"
+          :class="{ active: index === curId }"
           :key="index"
         >
-          <div :class="{active : index===curId}" class="nav2-list-name">{{item}}</div>
+          <div :class="{ active: index === curId }" class="nav2-list-name">{{ item }}</div>
         </div>
-      </div>
-      <div v-if="curId == 0" class="nav2-msg">
+      </div> -->
+      <!-- <div v-if="tabIndex == 0" class="nav2-msg">
         <div class="nav2-msg-list" v-for="(item, index) in items.myKecheng" :key="index">
           <div class="nav2-msg-list-img">
             <img :src="item.kcimg" alt />
           </div>
           <div class="nav2-msg-list-msg">
-            <p>课程名称：{{item.kcname}}</p>
-            <p>课程简介：{{item.kcjj}}</p>
-            <p>发布时间：{{item.time}}</p>
-            <p>收藏次数：{{item.shoucang}}</p>
-            <p>订阅人数：{{item.dingyue}}</p>
-            <p>课程状态：{{item.isshow=='false'?'审核中':'已发布'}}</p>
+            <p>课程名称：{{ item.kcname }}</p>
+            <p>课程简介：{{ item.kcjj }}</p>
+            <p>发布时间：{{ item.time }}</p>
+            <p>收藏次数：{{ item.shoucang }}</p>
+            <p>订阅人数：{{ item.dingyue }}</p>
+            <p>课程状态：{{ item.isshow == "false" ? "审核中" : "已发布" }}</p>
           </div>
         </div>
-      </div>
-      <div v-if="curId == 1" class="addkecheng">
+      </div> -->
+      <div v-if="tabIndex == 1" class="addkecheng">
         <form action>
           <div class="zuozhe">
             <div class="add-tit">作者：</div>
@@ -116,18 +120,22 @@
           <input type="button" value="提交" class="btn addkc btn-info" @click="addlist()" />
         </form>
       </div>
-      <div v-if="curId == 2" class="nav2-msg">
+      <div v-if="tabIndex == 2" class="nav2-msg">
         <div class="nav2-usermsg-list" v-for="(item, index) in pinjia" :key="index"></div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import Test from "./_components/test.vue";
 import Logic from "./Logic";
 import Data from "./Data";
+import Tanc from "./_components/Tanc.vue";
+import UserMsg from "./_components/UserMsg.vue";
+import Tab from "./_components/Tab.vue";
+import ClasList from "./_components/ClassList";
+
 export default {
-  components: { Test },
+  components: { Tanc, UserMsg, Tab, ClasList },
   name: "Kechen",
   data() {
     return {
@@ -142,129 +150,18 @@ export default {
 };
 </script>
 <style lang="css" scoped>
-.components {
-  border: 1px solid #ccc;
+.page {
+  border: 1px solid #ffffff;
   padding-bottom: 200px;
   height: 100%;
 }
-.mc {
-  width: 100%;
-  height: 1000px;
-  background-color: #ccc;
-  opacity: 0.8;
-  position: fixed;
-  top: -150px;
-  left: 0px;
-}
-.tc {
-  border: 1px solid white;
-  margin-left: 400px;
-  width: 30%;
-  height: 200px;
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.tc-row {
-  margin-top: 20px;
-  display: flex;
-}
-.tc-btn {
-  justify-content: space-around;
-}
-.active {
-  color: red !important;
-  border-bottom: 1px solid red !important;
-}
-.user {
-  margin-top: 20px;
-}
-.user-tit {
-  width: 10%;
-  line-height: 50px;
-  font-size: 15px;
-}
-.user-msg {
-  padding-top: 20px;
-  width: 100%;
-  display: flex;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 20px;
-}
-.user-msg > div {
-  margin-left: 20px;
-}
-.user-msg-xg {
-  height: 35px;
-  width: 200px;
-  display: flex;
-  overflow: hidden;
-}
-.userimg {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  background-color: red;
-  margin-left: 35px;
-  width: 80px;
-  height: 100%;
-  border-radius: 5px;
-  text-align: center;
-}
-.userimgbtn {
-  position: relative;
-  top: -12px;
-  width: 100%;
-  height: 100%;
-  left: 10px;
-  text-align: center;
-  color: white;
-}
-.userimg > input {
-  position: relative;
-  top: -20px;
-  opacity: 0;
-}
-.user-msg-img {
-  border-radius: 50%;
-  overflow: hidden;
-  width: 100px;
-  height: 100px;
-}
-.user-msg-text {
-  width: 50%;
-}
+
 .user-nav {
   width: 100%;
   display: flex;
   border-bottom: 1px solid #ccc;
 }
-.nav2-list {
-  line-height: 40px;
-  border: none;
-  width: 10%;
-  margin-right: 20px;
-  text-align: center;
-}
-.nav2-list-name {
-  color: white;
-}
-.nav2-msg {
-  padding-bottom: 30px;
-  width: 100%;
-}
-.nav2-msg-list {
-  padding-bottom: 20px;
-  border-bottom: 1px solid #ccc;
-  width: 100%;
-  display: flex;
-}
-.nav2-msg-list-img {
-  margin-top: 30px;
-  width: 10%;
-  margin-right: 40px;
-}
+
 .addkecheng {
   padding-bottom: 40px;
 }

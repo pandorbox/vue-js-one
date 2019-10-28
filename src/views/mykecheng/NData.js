@@ -7,8 +7,8 @@ export default {
     let data = [];
     const userMsg = await Call(Api.Account.userMsg({ _username: param.username }));
     const myKecheng = await Call(Api.Account.myKecheng({ _username: param.username }));
-    data.userMsg = userMsg;
-    data.myKecheng = myKecheng;
+    data.userMsg = userMsg.code ? [] : userMsg;
+    data.myKecheng = myKecheng.code ? [] : myKecheng;
     return data;
   },
   /** 添加课程one */

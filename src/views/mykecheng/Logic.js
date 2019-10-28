@@ -3,11 +3,10 @@ import Data from "./Data";
 import NData from "./NData";
 export default {
   data: {
-    items: [], //始数据组
+    /** 初始数据组 */
+    items: [],
+    /** 是否弹窗 */
     thistc: false,
-    usernc: "",
-    userjj: "",
-    usermsg: [1],
     kcauthor: "",
     kcclass: "",
     kcname: "",
@@ -17,35 +16,39 @@ export default {
     kcimg: [],
     id: "",
     tit: "",
-    curId: 0,
+    /** tab下标 */
+    tabIndex: 0,
+    /** tab选项 */
     nav: ["我的课程", "新添课程", "修改课程"],
     mykc: [],
     pinjia: []
   },
-    /**
- * 生命周期
- */
+  /**
+   * 生命周期
+   */
   being: {
-    async beforeCreate(){}, // 组件实例刚被创建
-    async created(){}, // 组件实例创建完成 
-    async beforeMount() {  // 挂载前
+    async beforeCreate() {}, // 组件实例刚被创建
+    async created() {}, // 组件实例创建完成
+    async beforeMount() {
+      // 挂载前
     },
-    async mounted() { // 挂载后
-      let name = this.$store.state.username
+    async mounted() {
+      // 挂载后
+      let name = this.$store.state.username;
       this.items = await NData.getData({ username: name });
-    console.log("data:", this.items);
+      console.log("data:", this.items);
     },
-    async beforeUpdate(){ // 组件更新前
-
+    async beforeUpdate() {
+      // 组件更新前
     },
-    async updated(){ // 组件更新后
-
+    async updated() {
+      // 组件更新后
     }
   },
   methods: {
     async onClick(param) {},
     async tab(index) {
-      this.curId = index;
+      this.tabIndex = index;
     },
     async kcaudio() {
       var data = new FormData();
@@ -77,7 +80,7 @@ export default {
       alert(res);
     },
     /** 修改头像 */
-    async userimg() {
+    async upPhoto() {
       var data = new FormData();
       var files = userinputFile.files;
       for (let item of files) {
@@ -89,24 +92,31 @@ export default {
       this.items.userMsg = res;
     },
     /** 开启弹窗 */
-    istc() {
+    async openTanc() {
       this.thistc = true;
     },
     /** 关闭弹窗 */
-    notc() {
+    closeTanc() {
       this.thistc = false;
     },
     /** 修改昵称简介 */
-    async addusermsg() {
-      console.log(this.$store.state.username);
-      let res = await NData.changeMsg({
-        _kcimg: this.kcimg,
-        _username: this.$store.state.username,
-        _usernc: this.usernc,
-        _userjj: this.userjj
-      });
-      this.items.userMsg = res;
-      this.thistc = false;
+    async changeMsg(param) {
+      if (param.userNc == "") {
+        alert("请输入昵称！");
+        return;
+      } else if (param.userJs == "") {
+        alert("请输入个人简介！");
+        return;
+      } else {
+        let res = await NData.changeMsg({
+          _kcimg: this.kcimg,
+          _username: this.$store.state.username,
+          _usernc: param.userNc,
+          _userjj: param.userJs
+        });
+        this.items.userMsg = res;
+        this.thistc = false;
+      }
     }
   }
 };

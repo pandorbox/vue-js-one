@@ -1,5 +1,5 @@
 <template>
-  <div class="components container">
+  <div class="page container">
     <Banner />
     <List :items="items" />
   </div>
@@ -26,4 +26,9 @@ export default {
 };
 </script>
 <style lang="css" scoped>
+.page{
+  border: 1px solid #ffffff;
+  display: flex;
+  flex-direction: column;
+}
 </style>

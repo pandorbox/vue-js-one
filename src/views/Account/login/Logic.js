@@ -15,11 +15,11 @@ export default {
   },
   methods: {
     async onClick(param) {},
-    async login() {
-      let res = await NData.login({ username: this.username, userpwd: this.userpwd });
+    async login(param) {
+      let res = await NData.login({ username: param.name, userpwd: param.pwd });
       if (res == 1) {
         alert("登陆成功!");
-        this.$store.commit("signin", this.username);
+        this.$store.commit("signin", param.name);
         this.$router.push("/index");
       } else {
         alert(res.msg);

@@ -16,12 +16,10 @@ export default {
       ...Data
     };
   },
-  mounted() {
-    Logic.mounted();
-  },
   methods: {
     ...Logic.methods
-  }
+  },
+  ...Logic.being
 };
 </script>
 <style lang="css" scoped>
