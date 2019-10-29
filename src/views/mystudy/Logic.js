@@ -12,34 +12,35 @@ export default {
     nav: ["未学完课程", "已学完课程", "我的订阅", "我的关注", "我的读书笔记"],
     mykecheng: []
   },
-/**
- * 生命周期
- */
+  /**
+   * 生命周期
+   */
   being: {
-    async beforeCreate(){}, // 组件实例刚被创建
-    async created(){}, // 组件实例创建完成 
+    async beforeCreate() {}, // 组件实例刚被创建
+    async created() {}, // 组件实例创建完成
     async beforeMount() {}, // 挂载前
-    async mounted() { // 挂载后
-      let name = this.$store.state.username
+    async mounted() {
+      // 挂载后
+      let name = this.$store.state.username;
       this.items = await NData.getData({ _name: name });
       console.log("data:", this.items);
     },
-    async beforeUpdate(){}, // 组件更新前
-    async updated(){} // 组件更新后
+    async beforeUpdate() {}, // 组件更新前
+    async updated() {} // 组件更新后
   },
   methods: {
     async onClick(param) {},
     tab(index) {
       this.curId = index;
     },
-    istc() {
+    openTanc() {
       this.thistc = true;
     },
-    notc(index) {
+    closeTanc(index) {
       this.thistc = false;
     },
     // 添加笔记
-    async adduserbj() {
+    async addNoteBook(param) {
       let time = new Date();
       let yaear = time.getFullYear();
       let month = time.getMonth() + 1;
@@ -48,8 +49,8 @@ export default {
       let res = await NData.addNoteBook({
         _bjtime: bjtime,
         _username: this.$store.state.username,
-        _bjtit: this.bjtit,
-        _bjmsg: this.bjmsg
+        _bjtit: param.tit,
+        _bjmsg: param.msg
       });
       this.items.noteBook = res;
       this.thistc = false;
