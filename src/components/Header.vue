@@ -38,6 +38,12 @@
 </script>
 <style scoped>
 /* header.css */
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  z-index: 9999;
+}
 .top {
   height: 50px;
   background-color: #d9e4e9;

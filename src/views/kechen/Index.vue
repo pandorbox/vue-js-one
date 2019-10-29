@@ -26,11 +26,10 @@ export default {
 };
 </script>
 <style lang="css" scoped>
-.page{
+.page {
   display: flex;
   flex-direction: column;
   border: 1px solid #ffffff;
-  background-color: rgb(156, 150, 150);
   padding-bottom: 300px;
 }
 </style>

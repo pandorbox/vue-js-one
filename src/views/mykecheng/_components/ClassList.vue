@@ -5,12 +5,12 @@
         <img :src="item.kcimg" alt />
       </div>
       <div class="list-msg">
-        <p>课程名称：{{ item.kcname }}</p>
-        <p>课程简介：{{ item.kcjj }}</p>
-        <p>发布时间：{{ item.time }}</p>
-        <p>收藏次数：{{ item.shoucang }}</p>
-        <p>订阅人数：{{ item.dingyue }}</p>
-        <p>课程状态：{{ item.isshow == "false" ? "审核中" : "已发布" }}</p>
+        <span>课程名称：{{ item.kcname }}</span>
+        <span>课程简介：{{ item.kcjj }}</span>
+        <span>发布时间：{{ item.time }}</span>
+        <span>收藏次数：{{ item.shoucang }}</span>
+        <span>订阅人数：{{ item.dingyue }}</span>
+        <span>课程状态：{{ item.isshow == "false" ? "审核中" : "已发布" }}</span>
       </div>
     </div>
   </div>
@@ -29,7 +29,7 @@ export default {
 };
 </script>
 <style lang="css" scoped>
-.components{
+.components {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -47,8 +47,12 @@ export default {
   width: 10%;
   margin-right: 40px;
 }
-.list-msg{
-  display:flex;
+.list-img > img {
+  width: 100%;
+  height: auto;
+}
+.list-msg {
+  display: flex;
   flex-direction: column;
   justify-content: center;
 }

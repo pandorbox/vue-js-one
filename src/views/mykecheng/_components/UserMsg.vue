@@ -13,7 +13,14 @@
         <div class="btn btn-success" @click="openTanc()">修改资料</div>
         <form action class="userimg">
           <div class="userimgbtn">上传头像</div>
-          <input class="user-img-input" type="file" multiple id="userinputFile" @change="upPhoto()" name="userimg" />
+          <input
+            class="user-img-input"
+            type="file"
+            multiple
+            id="userinputFile"
+            @change="upPhoto()"
+            name="userimg"
+          />
         </form>
       </div>
     </div>
@@ -39,7 +46,6 @@ export default {
 };
 </script>
 <style lang="css" scoped>
-
 .user {
   margin-top: 20px;
 }
@@ -52,6 +58,8 @@ export default {
   padding-top: 20px;
   width: 100%;
   display: flex;
+  flex-direction: row;
+  align-items: center;
   border-bottom: 1px solid #ccc;
   padding-bottom: 20px;
 }

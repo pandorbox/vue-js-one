@@ -1,6 +1,12 @@
 <template>
   <div class="components nav">
-    <div class="nav-list" @click="tab(index)" v-for="(item, index) in nav" :class="{ active: index === tabIndex }" :key="index">
+    <div
+      class="nav-list"
+      @click="tab(index)"
+      v-for="(item, index) in nav"
+      :class="{ active: index === tabIndex }"
+      :key="index"
+    >
       <div :class="{ active: index === tabIndex }" class="nav-list-name">{{ item }}</div>
     </div>
   </div>
@@ -38,7 +44,8 @@ export default {
 .nav-list-name {
   color: white;
 }
-.active{
+.active {
   border-bottom: 1px solid red;
+  color: red !important;
 }
 </style>

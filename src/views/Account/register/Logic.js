@@ -14,8 +14,8 @@ export default {
   },
   methods: {
     async onClick(param) {},
-    async button() {
-      let res = await NData.register({ username: this.username, userpwd: this.userpwd });
+    async button(param) {
+      let res = await NData.register({ username: param.name, userpwd: param.pwd });
       if (res == 1) {
         alert("注册成功!");
         this.$router.push("/login");

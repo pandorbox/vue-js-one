@@ -23,7 +23,9 @@
           </td>
         </tr>
         <tr>
-          <td class="autoLogin"><input type="checkbox" />自动登录</td>
+          <td class="autoLogin">
+            <input type="checkbox" />自动登录
+          </td>
           <td>
             <router-link to="/register">
               <span>去注册》</span>
@@ -41,9 +43,7 @@
 </template>
 <script>
 export default {
-  props: {
-    items: { default: {} }
-  },
+  props: {},
   name: "Test",
   data() {
     return {
@@ -59,19 +59,18 @@ export default {
 };
 </script>
 <style lang="css" scoped>
-#container {
-  width: 100%;
-  height: 600px;
-  background: url(../img/bg.png) no-repeat;
-  background-size: 100%;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-#container div.black {
+.black {
   width: 300px;
   height: 300px;
   background: rgba(0, 0, 0, 0.3);
-  margin: 10% 0 0 60%;
+  margin-top: 100px;
 }
-#container div.black table {
+.black table {
   width: 100%;
 }
 #container h4 {

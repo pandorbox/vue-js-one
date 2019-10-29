@@ -38,38 +38,42 @@
 </template>
 <script>
 export default {
-  props: {
-    items: { default: {} }
-  },
+  props: {},
   name: "Test",
   data() {
-    return {};
+    return {
+      username: "",
+      userpwd: ""
+    };
   },
   mounted() {},
-  methods: {}
+  methods: {
+    button() {
+      this.$emit("button", { name: this.username, pwd: this.userpwd });
+    }
+  }
 };
 </script>
 <style lang="css" scoped>
-#container {
-  width: 100%;
-  height: 600px;
-  background: url(../img/bg.png) no-repeat;
-  background-size: 100%;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-#container div.black {
+.black {
   width: 300px;
   height: 300px;
   background: rgba(0, 0, 0, 0.3);
-  margin: 10% 0 0 60%;
+  margin-top: 100px;
 }
-#container div.black table {
+.black table {
   width: 100%;
 }
-#container h4 {
+h4 {
   color: #fff;
   margin: 0;
 }
-#container a {
+a {
   color: #fff;
   text-decoration: none;
   font-size: 12px;
@@ -84,9 +88,7 @@ input.upwd {
   box-sizing: border-box;
   /* background: #fff url(../img/yhm.png) no-repeat 97% center; */
 }
-input.upwd {
-  /* background-image: url(../img/mm.png); */
-}
+
 input.login {
   width: 100%;
   height: 36px;

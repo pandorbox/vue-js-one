@@ -4,8 +4,8 @@
     <div class="item" v-for="(item,index) in items" :key="index">
       <div class="item-tit">{{item.tit}}</div>
       <div class="item-msg">
-        <div class="item-logoimg">
-          <img :src="item.img" alt />
+        <div class="item-img">
+          <img class="item-img-img" :src="item.img" alt />
         </div>
         <div class="item-lists">
           <div
@@ -20,7 +20,7 @@
             <div class="item-list-msg">
               <div>{{item2.kcname}}</div>
               <div>作者：{{item2.kcauthor}}</div>
-              <div>{{item2.kcjj}}</div>
+              <div class="item-list-msg-jj">简介：{{item2.kcjj}}</div>
             </div>
           </div>
         </div>
@@ -47,14 +47,15 @@ export default {
   }
 };
 </script>
-<style>
+<style lang="css" scoped>
 .list {
-  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 .item {
   border-bottom: 1px solid white;
   margin-top: 30px;
-  height: 240px;
   width: 100%;
 }
 .item-tit {
@@ -66,50 +67,49 @@ export default {
 }
 .item-msg {
   display: flex;
-  height: 200px;
+  height: 240px;
+  display: flex;
+  flex-direction: row;
 }
-.item-logoimg {
-  width: 10%;
-  height: 100%;
+.item-img {
+  width: 15%;
+  height: 240px;
+  overflow: hidden;
 }
 .item-lists {
   width: 100%;
-  height: 50%;
+  height: 240px;
   display: flex;
   overflow: hidden;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .item-list {
-  border: 1px solid white;
   width: 10%;
+  height: 50%;
   margin-left: 50px;
 }
 .item-list-img {
   width: 100%;
-  height: 40%;
-}
-.item-list-img img {
-  width: 100%;
-  height: 100%;
+  height: 50%;
 }
 .item-list-msg {
-  height: 60%;
-  padding-left: 5px;
-  padding-right: 5px;
+  background-color: rgb(61, 60, 58);
+  color: #a09b9b;
+  height: 50%;
+  padding-top: 5px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   overflow: hidden;
   line-height: 10px;
   font-size: 10px;
 }
-.item-list-msg > div {
-  height: 33.3%;
-}
-.item-list-msg div:first-child {
-  text-align: center;
-}
-.item-list-msg div:last-child {
-  word-wrap: none;
+.item-list-msg-jj {
   overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
   text-overflow: ellipsis;
 }
 </style>

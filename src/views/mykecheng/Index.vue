@@ -45,49 +45,4 @@ export default {
   padding-bottom: 200px;
   height: 100%;
 }
-
-.user-nav {
-  width: 100%;
-  display: flex;
-  border-bottom: 1px solid #ccc;
-}
-
-.addkecheng {
-  padding-bottom: 40px;
-}
-form > div {
-  margin-top: 20px;
-  width: 100%;
-  display: flex;
-}
-.add-tit {
-  width: 10%;
-  text-align: right;
-  margin-right: 20px;
-}
-.input-short {
-  width: 70px;
-  border: none !important;
-  border-bottom: 2px solid black !important;
-  outline: medium;
-  text-align: center;
-}
-.input-lang {
-  width: 150px;
-  border: none !important;
-  border-bottom: 2px solid black !important;
-  outline: medium;
-}
-.input-lizi {
-  color: rgb(224, 221, 221);
-  margin-left: 10px;
-}
-.submit {
-  width: 100%;
-  padding-left: 200px;
-}
-.addkc {
-  margin-left: 200px;
-  margin-top: 30px;
-}
 </style>

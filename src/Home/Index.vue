@@ -40,6 +40,7 @@ export default {
   overflow: hidden;
   background-size: cover;
   position: relative;
+  margin-top: 50px;
 }
 /** 蒙层 */
 .home {

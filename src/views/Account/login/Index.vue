@@ -2,7 +2,7 @@
   <div class="page">
     <Header />
     <Form @login="login" />
-    <Foote />
+    <Foote class="foot" />
   </div>
 </template>
 <script>
@@ -31,8 +31,18 @@ export default {
 };
 </script>
 <style lang="css" scoped>
-.page{
-  display: flex;
-  flex-direction: column;
+.page {
+  height: 100%;
+  background: url(./img/bg.png) no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+}
+.foot {
+  position: absolute;
+  bottom: 0px;
 }
 </style>

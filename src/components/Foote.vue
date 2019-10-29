@@ -18,10 +18,8 @@
 </template>
 <style>
 .footer {
-  margin-top: 300px;
+  width: 100%;
   background-color: rgb(247, 241, 241);
-  position: relative;
-  bottom: 0px;
 }
 .footer-logo {
   padding-right: 7%;
