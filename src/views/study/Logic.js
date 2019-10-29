@@ -15,25 +15,26 @@ export default {
     nav: ["课程详情", "课程评价"],
     pinjia: []
   },
-/**
- * 生命周期
- */
+  /**
+   * 生命周期
+   */
   being: {
-    async beforeCreate(){}, // 组件实例刚被创建
-    async created(){}, // 组件实例创建完成 
+    async beforeCreate() {}, // 组件实例刚被创建
+    async created() {}, // 组件实例创建完成
     async beforeMount() {}, // 挂载前
-    async mounted() { // 挂载后
+    async mounted() {
+      // 挂载后
       let route = this.$route.params;
-      let name = this.$store.state.username
+      let name = this.$store.state.username;
       this.id = this.$route.params.id;
       this.items = await NData.getData({ _route: route, _username: name });
       if (this.items.isDinyue == 1) {
         this.isdy = true;
       } else {
-      this.isdy = false;
+        this.isdy = false;
       }
       console.log("data:", this.items);
-    },
+    }
   },
   methods: {
     async onClick(param) {},
@@ -72,7 +73,7 @@ export default {
         console.log(res);
       }
     },
-    async addpj() {
+    async addpj(param) {
       var time = new Date();
       var yaear = time.getFullYear();
       var month = time.getMonth() + 1;
@@ -83,11 +84,12 @@ export default {
       let res = await NData.addPingjia({
         _pjtime: pjtime,
         _userimg: this.items.userMsg[0].userimg,
-        _kcpjmsg: this.kcpjmsg,
+        _kcpjmsg: param.msg,
         _username: this.items.userMsg[0].username,
         _kcid: this.id
       });
-      console.log(res);
+      await this.items.classPinjia.push(res[res.length - 1]);
+      console.log("pj:", this.items.classPinjia);
     }
   }
 };

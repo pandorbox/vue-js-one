@@ -18,13 +18,12 @@
 <script>
 export default {
   props: {
-    items: { default: {} }
+    items: {}
   },
   name: "List",
   data() {
     return {};
   },
-  mounted() {},
   methods: {}
 };
 </script>

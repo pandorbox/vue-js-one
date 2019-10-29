@@ -34,7 +34,7 @@ export default {
     },
     async mounted() {
       // 挂载后
-      let name = this.$store.state.username;
+      let name = await this.$store.state.username;
       this.items = await NData.getData({ username: name });
       console.log("data:", this.items);
     },
@@ -81,18 +81,18 @@ export default {
     },
     /** 修改头像 */
     async upPhoto() {
-      var data = new FormData();
-      var files = userinputFile.files;
+      let data = new FormData();
+      let files = userinputFile.files;
       for (let item of files) {
         data.append("userimg", item);
       }
-      var username = this.$store.state.username;
+      let username = this.$store.state.username;
       data.append("username", username);
       let res = await NData.changePhoto(data);
       this.items.userMsg = res;
     },
     /** 开启弹窗 */
-    async openTanc() {
+    openTanc() {
       this.thistc = true;
     },
     /** 关闭弹窗 */

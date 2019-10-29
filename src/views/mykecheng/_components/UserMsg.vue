@@ -30,7 +30,7 @@
 export default {
   name: "UserMsg",
   props: {
-    items: { default: [] }
+    items: {}
   },
   data() {
     return {};
