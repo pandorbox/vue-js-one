@@ -89,7 +89,11 @@ export default {
       let username = this.$store.state.username;
       data.append("username", username);
       let res = await NData.changePhoto(data);
-      this.items.userMsg = res;
+      if (res) {
+        this.items["userMsg"].splice(0, 1, res);
+      } else {
+        alert("上传失败");
+      }
     },
     /** 开启弹窗 */
     openTanc() {

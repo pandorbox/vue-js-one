@@ -41,6 +41,7 @@ export default {
     },
     upPhoto() {
       this.$emit("upPhoto", {});
+      console.log(this.isRouterAlive);
     }
   }
 };

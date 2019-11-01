@@ -37,6 +37,7 @@ export default {
   /** 修改头像 */
   async changePhoto(param) {
     const res = await Call(Api.Account.changePhoto(param));
-    return res;
+    if (res.length > 0) return res;
+    return false;
   }
 };
