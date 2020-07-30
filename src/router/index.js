@@ -29,10 +29,5 @@ export default new Router({
     { path: "/login", component: Login },
     { path: "/register", component: Register },
     { path: "/study", name: "study", component: Study }
-    // { path: '/test',name:'test',redirect:'/test/xxk', component:Test,  children:[
-    //   { path: 'xxk', component:Xxk,name:'xxk' },
-    //   { path: 'form', component:Form, name:'form' },
-    //   { path: 'select', component:Select, name:'select' },
-    // ]},
   ]
 });
